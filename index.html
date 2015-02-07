@@ -1,0 +1,52 @@
+---
+layout: page
+title: Blog Entries
+tagline: The travails of developing a Credit Scoring Solution wiht R and Shiny
+---
+
+{% include JB/setup %}
+
+{% for post in paginator.posts %}
+   <!-- here add you post markup -->
+   <p class="author">
+    <span class="date">{{post.date | date: "%Y-%m-%d"}}</span>
+  </p>
+   <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+  <div class="content">
+    {{ post.content }}
+  </div>
+  <div class="content-space"></div>
+{% endfor %}
+
+<!-- Pagination links -->
+<div class="pagination pagination-centered">
+  <ul>
+  {% if paginator.previous_page %}
+    {% if paginator.previous_page == 1 %}
+      <li class="prev"><a href="/" title="Previous page">Prev</a></li>
+    {% else %}
+      <li class="prev"><a href="/page{{paginator.previous_page}}" title="Previous page">Prev</a></li>
+    {% endif %}
+  {% else %}
+    <li class="prev disabled"><a>Prev</a></li>
+  {% endif %}
+  {% if paginator.next_page %}
+    <li class="next"><a href="/page{{paginator.next_page}}" title="Next page">Next</a></li>
+  {% else %}
+    <li class="next disabled"><a>Next</a>
+  {% endif %}
+  </ul>
+</div>
+
+<!-- {% include JB/setup %}
+    
+## Blog Posts
+
+This blog contains sample posts which help stage pages and blog data.
+
+
+<ul class="posts">
+  {% for post in site.posts %}
+    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul> -->
